@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLADE & CO. — Преміум барбершоп у Києві | Стрижка, гоління, догляд</title>
+<meta name="description" content="Преміум барбершоп у центрі Києва. Чоловічі стрижки, королівське гоління небезпечною бритвою, догляд за бородою. Запис онлайн за 30 секунд.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0C0C0E;
+  --surface:#151518;
+  --surface-2:#1C1C21;
+  --border:#2A2A31;
+  --text:#F5F2EC;
+  --text-muted:#A8A29A;
+  --gold:#C9A227;
+  --gold-light:#E3C355;
+  --radius:4px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px}
+h1,h2,h3,.display{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.04em}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+.eyebrow{color:var(--gold);font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.25em;font-size:13px;font-weight:500;display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:36px;height:1px;background:var(--gold)}
+section{padding:96px 0}
+.section-title{font-size:clamp(30px,4.5vw,46px);font-weight:600;margin:14px 0 18px}
+.section-sub{color:var(--text-muted);max-width:560px;font-weight:300}
+
+/* film grain overlay */
+.grain{position:relative}
+.grain::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.55;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E")}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,12,14,.82);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
+.nav.scrolled{border-bottom-color:var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;letter-spacing:.12em}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:34px;list-style:none}
+.nav-links a{font-size:14px;color:var(--text-muted);transition:color .2s;letter-spacing:.02em}
+.nav-links a:hover{color:var(--gold-light)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:14px;font-weight:500;padding:15px 32px;border-radius:var(--radius);border:1px solid var(--gold);transition:all .25s;min-height:48px}
+.btn-solid{background:var(--gold);color:#111}
+.btn-solid:hover{background:var(--gold-light);border-color:var(--gold-light);transform:translateY(-2px);box-shadow:0 10px 30px rgba(201,162,39,.25)}
+.btn-ghost{background:transparent;color:var(--gold)}
+.btn-ghost:hover{background:rgba(201,162,39,.1)}
+.nav .btn{padding:11px 22px;min-height:42px}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:10px}
+.burger span{display:block;width:24px;height:2px;background:var(--text);margin:5px 0;transition:.3s}
+
+/* HERO */
+.hero{position:relative;min-height:100dvh;display:flex;align-items:center;padding:140px 0 90px;overflow:hidden;
+  background:
+   radial-gradient(1100px 600px at 85% 20%, rgba(201,162,39,.14), transparent 60%),
+   radial-gradient(900px 700px at 70% 90%, rgba(201,162,39,.07), transparent 55%),
+   linear-gradient(120deg,#0C0C0E 40%,#17151a 75%,#1d1a15 100%)}
+.hero-art{position:absolute;right:-40px;top:50%;transform:translateY(-50%);width:min(46vw,560px);opacity:.9;pointer-events:none}
+.hero-content{position:relative;max-width:640px;z-index:2}
+.hero h1{font-size:clamp(42px,7vw,80px);font-weight:600;line-height:1.06;margin:20px 0 24px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{color:var(--text-muted);font-size:18px;font-weight:300;max-width:480px;margin-bottom:38px}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:44px;margin-top:64px;flex-wrap:wrap}
+.hero-meta .num{font-family:'Oswald',sans-serif;font-size:32px;color:var(--gold);font-weight:600}
+.hero-meta .cap{font-size:13px;color:var(--text-muted);letter-spacing:.05em}
+
+/* SERVICES */
+.services{background:var(--surface)}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:56px}
+.service{background:var(--surface);padding:34px 36px;display:flex;justify-content:space-between;align-items:flex-start;gap:20px;transition:background .25s}
+.service:hover{background:var(--surface-2)}
+.service h3{font-size:19px;font-weight:500;margin-bottom:8px}
+.service p{color:var(--text-muted);font-size:14px;font-weight:300;max-width:340px}
+.price{font-family:'Oswald',sans-serif;color:var(--gold);font-size:22px;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+.price small{font-size:13px;color:var(--text-muted);font-weight:400}
+
+/* BARBERS */
+.barbers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px}
+.barber{background:var(--surface);border:1px solid var(--border);overflow:hidden;transition:transform .25s,border-color .25s}
+.barber:hover{transform:translateY(-6px);border-color:var(--gold)}
+.barber-photo{aspect-ratio:4/4.2;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.barber-photo .monogram{font-family:'Oswald',sans-serif;font-size:96px;font-weight:600;color:var(--gold);opacity:.92;position:relative;z-index:2;text-shadow:0 8px 40px rgba(201,162,39,.35)}
+.barber-photo .tag{position:absolute;bottom:14px;right:14px;z-index:2;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);border:1px solid var(--border);padding:5px 10px;border-radius:3px;background:rgba(12,12,14,.6)}
+.bp-1{background:radial-gradient(400px 300px at 30% 20%,rgba(201,162,39,.22),transparent 60%),linear-gradient(160deg,#1a1712,#0e0d0b)}
+.bp-2{background:radial-gradient(400px 300px at 70% 25%,rgba(201,162,39,.18),transparent 60%),linear-gradient(200deg,#141317,#0d0c10)}
+.bp-3{background:radial-gradient(400px 300px at 50% 80%,rgba(201,162,39,.16),transparent 60%),linear-gradient(180deg,#171412,#0c0b0a)}
+.barber-info{padding:22px 24px}
+.barber-info h3{font-size:18px;font-weight:500}
+.barber-info .role{color:var(--gold);font-size:12px;text-transform:uppercase;letter-spacing:.18em;margin:6px 0 10px;font-family:'Oswald',sans-serif}
+.barber-info p{color:var(--text-muted);font-size:14px;font-weight:300}
+
+/* STYLES (замість фотогалереї) */
+.gallery{background:var(--surface)}
+.styles-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:56px}
+.style-card{aspect-ratio:1;border:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:20px;text-align:center;transition:border-color .25s,transform .25s;cursor:pointer;position:relative;overflow:hidden}
+.style-card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.style-card svg{width:64px;height:64px;stroke:var(--gold);fill:none;stroke-width:1.4}
+.style-card .name{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:15px}
+.style-card .desc{font-size:12px;color:var(--text-muted);font-weight:300}
+.sc-1{background:linear-gradient(150deg,#16130e,#0e0d0b)}
+.sc-2{background:linear-gradient(210deg,#131217,#0d0c10)}
+.sc-3{background:linear-gradient(180deg,#15120f,#0c0b0a)}
+.sc-4{background:linear-gradient(120deg,#121410,#0c0d0b)}
+
+/* REVIEWS */
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px}
+.review{background:var(--surface);border:1px solid var(--border);padding:30px;display:flex;flex-direction:column;gap:16px}
+.stars{color:var(--gold);letter-spacing:3px;font-size:15px}
+.review p{color:var(--text);font-weight:300;font-size:15px;flex:1}
+.review .author{color:var(--text-muted);font-size:13px;letter-spacing:.05em}
+
+/* BOOKING */
+.booking{position:relative;background:
+   radial-gradient(900px 500px at 15% 30%, rgba(201,162,39,.10), transparent 60%),
+   linear-gradient(140deg,#111013 30%,#17141a 70%,#141210)}
+.booking-inner{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start;position:relative;z-index:2}
+.booking-form{background:var(--surface);border:1px solid var(--border);padding:42px;display:flex;flex-direction:column;gap:20px}
+.field label{display:block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;font-family:'Oswald',sans-serif}
+.field input,.field select{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:14px 16px;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:16px;min-height:48px;transition:border-color .2s}
+.field input:focus,.field select:focus{outline:2px solid var(--gold);outline-offset:0;border-color:var(--gold)}
+.form-note{font-size:13px;color:var(--text-muted)}
+.contact-list{margin-top:40px;display:flex;flex-direction:column;gap:22px}
+.contact-item{display:flex;gap:18px;align-items:flex-start}
+.contact-item svg{flex-shrink:0;margin-top:3px}
+.contact-item .label{font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--text-muted);font-family:'Oswald',sans-serif}
+.contact-item .value{font-size:17px;margin-top:3px}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:36px 0;background:var(--bg)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer p{color:var(--text-muted);font-size:13px}
+.socials{display:flex;gap:10px}
+.socials a{width:44px;height:44px;border:1px solid var(--border);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;transition:border-color .2s,color .2s;color:var(--text-muted)}
+.socials a:hover{border-color:var(--gold);color:var(--gold)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease-out,transform .6s ease-out}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  *{transition-duration:.01ms!important;animation:none!important}
+}
+
+/* RESPONSIVE */
+@media (max-width:900px){
+  section{padding:72px 0}
+  .services-grid{grid-template-columns:1fr}
+  .barbers-grid{grid-template-columns:1fr 1fr}
+  .reviews-grid{grid-template-columns:1fr}
+  .styles-grid{grid-template-columns:repeat(2,1fr)}
+  .booking-inner{grid-template-columns:1fr;gap:48px}
+  .hero-art{opacity:.25}
+}
+@media (max-width:640px){
+  .nav-links{position:fixed;inset:72px 0 auto 0;background:var(--surface);flex-direction:column;gap:0;padding:12px 0;border-bottom:1px solid var(--border);display:none}
+  .nav-links.open{display:flex}
+  .nav-links a{display:block;padding:15px 24px;font-size:16px}
+  .burger{display:block}
+  .nav .btn{display:none}
+  .barbers-grid{grid-template-columns:1fr}
+  .booking-form{padding:28px 22px}
+  .hero-meta{gap:28px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav" aria-label="Головна навігація">
+  <div class="container nav-inner">
+    <a href="#" class="logo">BLADE<span>&amp;</span>CO.</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Послуги</a></li>
+      <li><a href="#barbers">Барбери</a></li>
+      <li><a href="#styles">Стилі</a></li>
+      <li><a href="#reviews">Відгуки</a></li>
+      <li><a href="#booking">Контакти</a></li>
+    </ul>
+    <a href="#booking" class="btn btn-solid">Записатися</a>
+    <button class="burger" id="burger" aria-label="Відкрити меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<header class="hero grain">
+  <!-- лінійна графіка: ножиці та бритва -->
+  <svg class="hero-art" viewBox="0 0 400 400" aria-hidden="true">
+    <g stroke="#C9A227" stroke-width="1.2" fill="none" opacity=".85">
+      <circle cx="200" cy="200" r="150" opacity=".25"/>
+      <circle cx="200" cy="200" r="110" opacity=".18"/>
+      <!-- ножиці -->
+      <g transform="rotate(-35 200 200)">
+        <line x1="120" y1="120" x2="252" y2="252"/>
+        <line x1="252" y1="120" x2="120" y2="252"/>
+        <circle cx="108" cy="108" r="17"/>
+        <circle cx="264" cy="108" r="17"/>
+        <circle cx="186" cy="186" r="4" fill="#C9A227"/>
+      </g>
+      <!-- штрихи -->
+      <g opacity=".5">
+        <line x1="40" y1="330" x2="90" y2="330"/>
+        <line x1="50" y1="342" x2="80" y2="342"/>
+        <line x1="310" y1="60" x2="360" y2="60"/>
+        <line x1="320" y1="72" x2="350" y2="72"/>
+      </g>
+    </g>
+  </svg>
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">Барбершоп · Київ · з 2019</div>
+      <h1>Стрижка — це <em>характер</em></h1>
+      <p>Класична майстерність, небезпечна бритва та віскі за рахунок закладу. 45 хвилин — і ти виходиш іншою людиною.</p>
+      <div class="hero-actions">
+        <a href="#booking" class="btn btn-solid">Записатися онлайн</a>
+        <a href="#services" class="btn btn-ghost">Послуги та ціни</a>
+      </div>
+      <div class="hero-meta">
+        <div><div class="num">6</div><div class="cap">барберів-майстрів</div></div>
+        <div><div class="num">12 000+</div><div class="cap">стрижок за 5 років</div></div>
+        <div><div class="num">4.9★</div><div class="cap">рейтинг у Google</div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="eyebrow reveal">Прайс</div>
+    <h2 class="section-title reveal">Послуги та ціни</h2>
+    <p class="section-sub reveal">Жодних прихованих доплат. У вартість входить консультація, миття голови та укладка.</p>
+    <div class="services-grid">
+      <div class="service reveal"><div><h3>Чоловіча стрижка</h3><p>Консультація, стрижка машинкою та ножицями, миття, укладка.</p></div><div class="price">600 <small>грн</small></div></div>
+      <div class="service reveal"><div><h3>Стрижка + борода</h3><p>Комплекс: стрижка та моделювання бороди з гарячим рушником.</p></div><div class="price">900 <small>грн</small></div></div>
+      <div class="service reveal"><div><h3>Королівське гоління</h3><p>Небезпечна бритва, гарячий рушник, догляд преміум-косметикою.</p></div><div class="price">550 <small>грн</small></div></div>
+      <div class="service reveal"><div><h3>Моделювання бороди</h3><p>Форма, контур, олія для бороди — все включено.</p></div><div class="price">450 <small>грн</small></div></div>
+      <div class="service reveal"><div><h3>Стрижка машинкою</h3><p>Одна насадка, швидко та акуратно. Ідеально для fade.</p></div><div class="price">400 <small>грн</small></div></div>
+      <div class="service reveal"><div><h3>Батько + син</h3><p>Дві стрижки поспіль. Синові до 12 років — подарунок від закладу.</p></div><div class="price">950 <small>грн</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="barbers">
+  <div class="container">
+    <div class="eyebrow reveal">Команда</div>
+    <h2 class="section-title reveal">Твій барбер</h2>
+    <p class="section-sub reveal">Кожен майстер — мінімум 4 роки досвіду та сотні постійних клієнтів. Тут будуть живі фото команди.</p>
+    <div class="barbers-grid">
+      <div class="barber reveal">
+        <div class="barber-photo bp-1 grain"><div class="monogram">О</div><div class="tag">фото майстра</div></div>
+        <div class="barber-info"><h3>Олег</h3><div class="role">Топ-барбер · 8 років</div><p>Класичні чоловічі стрижки, фейди будь-якої складності.</p></div>
+      </div>
+      <div class="barber reveal">
+        <div class="barber-photo bp-2 grain"><div class="monogram">М</div><div class="tag">фото майстра</div></div>
+        <div class="barber-info"><h3>Макс</h3><div class="role">Майстер гоління · 6 років</div><p>Королівське гоління та архітектура бороди.</p></div>
+      </div>
+      <div class="barber reveal">
+        <div class="barber-photo bp-3 grain"><div class="monogram">Д</div><div class="tag">фото майстра</div></div>
+        <div class="barber-info"><h3>Діма</h3><div class="role">Барбер-стиліст · 5 років</div><p>Сучасні текстурні стрижки та підбір стилю.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="styles">
+  <div class="container">
+    <div class="eyebrow reveal">Спеціалізація</div>
+    <h2 class="section-title reveal">Що ми робимо найкраще</h2>
+    <div class="styles-grid reveal">
+      <div class="style-card sc-1 grain">
+        <svg viewBox="0 0 64 64"><path d="M14 44c4-18 12-30 18-30s14 12 18 30M20 44h24"/><path d="M24 30c2-3 6-5 8-5s6 2 8 5"/></svg>
+        <div class="name">Classic Cut</div><div class="desc">Класика, що не старіє</div>
+      </div>
+      <div class="style-card sc-2 grain">
+        <svg viewBox="0 0 64 64"><path d="M16 46V22M24 46V18M32 46V16M40 46V18M48 46V22"/><path d="M16 22c6-6 26-6 32 0"/></svg>
+        <div class="name">Fade</div><div class="desc">Плавні переходи 0.0</div>
+      </div>
+      <div class="style-card sc-3 grain">
+        <svg viewBox="0 0 64 64"><path d="M18 26c0-8 6-12 14-12s14 4 14 12c0 10-4 24-14 24S18 36 18 26z"/><path d="M24 40c2 3 5 5 8 5s6-2 8-5"/></svg>
+        <div class="name">Beard Art</div><div class="desc">Архітектура бороди</div>
+      </div>
+      <div class="style-card sc-4 grain">
+        <svg viewBox="0 0 64 64"><path d="M12 40L40 12l8 4-26 30-12 2 2-8z"/><path d="M36 16l8 8"/></svg>
+        <div class="name">Royal Shave</div><div class="desc">Небезпечна бритва</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="container">
+    <div class="eyebrow reveal">Відгуки</div>
+    <h2 class="section-title reveal">Що кажуть клієнти</h2>
+    <div class="reviews-grid">
+      <div class="review reveal"><div class="stars" aria-label="5 з 5 зірок">★★★★★</div><p>«Ходжу тільки сюди вже два роки. Олег знає мою стрижку краще за мене. Атмосфера — топ, віскі — приємний бонус.»</p><div class="author">Андрій К. · Google Maps</div></div>
+      <div class="review reveal"><div class="stars" aria-label="5 з 5 зірок">★★★★★</div><p>«Вперше спробував королівське гоління — тепер розумію, за що люди платять. Це ритуал, а не процедура.»</p><div class="author">Володимир С. · Google Maps</div></div>
+      <div class="review reveal"><div class="stars" aria-label="5 з 5 зірок">★★★★★</div><p>«Привів сина на першу "дорослу" стрижку. Малий у захваті, фото вийшли кращі, ніж у весільного фотографа.»</p><div class="author">Ігор М. · Google Maps</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="booking grain" id="booking">
+  <div class="container booking-inner">
+    <div>
+      <div class="eyebrow reveal">Запис</div>
+      <h2 class="section-title reveal">Запишись за 30 секунд</h2>
+      <p class="section-sub reveal">Залиш номер — адміністратор передзвонить протягом 15 хвилин у робочий час і підбере зручний слот.</p>
+      <div class="contact-list reveal">
+        <div class="contact-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A227" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <div><div class="label">Адреса</div><div class="value">вул. Хрещатик, 15, Київ</div></div>
+        </div>
+        <div class="contact-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A227" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <div><div class="label">Графік</div><div class="value">Пн–Нд · 10:00 – 21:00</div></div>
+        </div>
+        <div class="contact-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A227" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+          <div><div class="label">Телефон</div><div class="value"><a href="tel:+380671234567">+38 (067) 123-45-67</a></div></div>
+        </div>
+      </div>
+    </div>
+    <form class="booking-form reveal" id="bookingForm" novalidate>
+      <div class="field">
+        <label for="name">Ім'я *</label>
+        <input type="text" id="name" name="name" autocomplete="name" required placeholder="Як до тебе звертатися">
+      </div>
+      <div class="field">
+        <label for="phone">Телефон *</label>
+        <input type="tel" id="phone" name="phone" autocomplete="tel" required placeholder="+38 (___) ___-__-__">
+      </div>
+      <div class="field">
+        <label for="service">Послуга</label>
+        <select id="service" name="service">
+          <option>Чоловіча стрижка</option>
+          <option>Стрижка + борода</option>
+          <option>Королівське гоління</option>
+          <option>Моделювання бороди</option>
+          <option>Батько + син</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-solid" id="submitBtn">Забронювати час</button>
+      <p class="form-note" id="formNote">Натискаючи кнопку, ти погоджуєшся на обробку контактних даних.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <p>© 2026 BLADE&amp;CO. Барбершоп · Київ</p>
+    <div class="socials">
+      <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="#" aria-label="Telegram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 4L3 11l6 2 2 6 3-4 5 3 2-14z"/></svg></a>
+      <a href="#" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3v9.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.5 2.5 4.5 5 5"/></svg></a>
+    </div>
+    <p>Демо-сайт · зроблено за 1 день</p>
+  </div>
+</footer>
+
+<script>
+// Sticky nav border
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>10),{passive:true});
+
+// Mobile menu
+const burger=document.getElementById('burger'),links=document.getElementById('navLinks');
+burger.addEventListener('click',()=>{
+  const open=links.classList.toggle('open');
+  burger.setAttribute('aria-expanded',open);
+});
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+
+// Scroll reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Form (demo): replace action with Formspree endpoint for production
+const form=document.getElementById('bookingForm'),note=document.getElementById('formNote'),btn=document.getElementById('submitBtn');
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=form.name.value.trim(),phone=form.phone.value.trim();
+  if(!name||!phone){note.textContent='⚠ Заповни ім\'я та телефон — і ми передзвонимо.';note.style.color='#E3C355';return}
+  btn.textContent='Надсилаємо…';btn.disabled=true;
+  setTimeout(()=>{
+    btn.textContent='✓ Заявку прийнято';btn.style.background='#2E7D32';btn.style.borderColor='#2E7D32';btn.style.color='#fff';
+    note.textContent='Дякуємо, '+name+'! Адміністратор зателефонує протягом 15 хвилин у робочий час.';note.style.color='#A8A29A';
+  },900);
+});
+</script>
+</body>
+</html>

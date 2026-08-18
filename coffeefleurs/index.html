@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coffee. Fleurs — кофейня и цветы в историческом центре Тамбова | Советская, 81</title>
+<meta name="description" content="Coffee. Fleurs — авторская кофейня и цветочная лавка в историческом здании на Советской, 81 в Тамбове. Спешелти-кофе, макаронс, свежие букеты. Рейтинг 5.0 на Яндекс Картах.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blush:#FBF3F1;
+  --blush-2:#F5E6E2;
+  --paper:#FFFFFF;
+  --ink:#2C2226;
+  --ink-soft:#7A6A70;
+  --rose:#C9788A;
+  --rose-dark:#A85B6E;
+  --gold:#B8955A;
+  --gold-2:#D4B27A;
+  --border:#EBD9D6;
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--blush);color:var(--ink);line-height:1.7;font-size:16.5px;font-weight:300}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.1}
+a{color:inherit;text-decoration:none}
+img,svg{max-width:100%;display:block}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+section{padding:96px 0}
+.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:.32em;font-size:11.5px;font-weight:500}
+.section-title{font-size:clamp(34px,5vw,54px);margin:14px 0 16px}
+.section-sub{color:var(--ink-soft);max-width:540px}
+.ornament{display:flex;align-items:center;gap:14px;color:var(--gold);margin:8px 0 0}
+.ornament::before,.ornament::after{content:"";height:1px;width:40px;background:var(--gold-2)}
+
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;background:rgba(251,243,241,.9);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:.3s}
+.nav.scrolled{border-bottom-color:var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:10px;color:var(--ink)}
+.logo svg{width:26px;height:26px}
+.logo span{color:var(--rose)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:14px;font-weight:400;letter-spacing:.06em;color:var(--ink-soft);transition:color .2s;text-transform:uppercase}
+.nav-links a:hover{color:var(--rose)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;cursor:pointer;font-family:'Jost',sans-serif;font-weight:500;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;padding:15px 32px;border-radius:999px;border:1.5px solid var(--rose);transition:all .25s;min-height:48px}
+.btn-solid{background:var(--rose);color:#fff}
+.btn-solid:hover{background:var(--rose-dark);border-color:var(--rose-dark);transform:translateY(-2px);box-shadow:0 12px 28px rgba(201,120,138,.3)}
+.btn-ghost{background:transparent;color:var(--rose-dark)}
+.btn-ghost:hover{background:rgba(201,120,138,.08)}
+.nav .btn{padding:10px 22px;min-height:42px}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:10px}
+.burger span{display:block;width:24px;height:1.5px;background:var(--ink);margin:6px 0}
+
+.hero{position:relative;min-height:100dvh;display:flex;align-items:center;padding:150px 0 90px;overflow:hidden;
+  background:radial-gradient(900px 520px at 88% 10%,rgba(201,120,138,.14),transparent 55%),
+             radial-gradient(700px 500px at 8% 92%,rgba(184,149,90,.12),transparent 55%),var(--blush)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(46px,7vw,84px);margin:16px 0 22px;font-weight:400}
+.hero h1 em{font-style:italic;color:var(--rose)}
+.hero p{color:var(--ink-soft);font-size:18.5px;max-width:460px;margin-bottom:36px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.badges{display:flex;gap:36px;margin-top:54px;flex-wrap:wrap}
+.b .t{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:var(--rose-dark)}
+.b .c{font-size:13px;color:var(--ink-soft);letter-spacing:.04em}
+.y-badge{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:999px;padding:8px 18px;font-size:13.5px;margin-bottom:22px;box-shadow:0 6px 18px rgba(44,34,38,.05)}
+.y-badge b{color:var(--rose)}
+.hero-art{position:relative;aspect-ratio:1/1.1;border-radius:200px 200px 24px 24px;overflow:hidden;background:linear-gradient(170deg,#F7E4E1,#EFCFCB 55%,#E7BDB9);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+.hero-art svg{width:74%}
+.hero-art .photo-tag{position:absolute;bottom:16px;right:16px;background:rgba(44,34,38,.72);color:#FBF3F1;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+
+.menu{background:var(--paper)}
+.menu-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:24px 64px;margin-top:52px}
+.mcol h3{font-size:26px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--gold-2);font-style:italic}
+.mrow{display:flex;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1px dotted var(--border);font-size:16px}
+.mrow .sz{color:var(--ink-soft);font-size:13px;margin-left:8px}
+.mrow .p{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:19px;color:var(--rose-dark);white-space:nowrap;font-variant-numeric:tabular-nums}
+.note-under{color:var(--ink-soft);font-size:13px;margin-top:22px}
+
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
+.why{border-radius:var(--radius);padding:36px 30px;display:flex;flex-direction:column;gap:14px;border:1px solid var(--border);background:var(--paper);transition:transform .25s,box-shadow .25s;text-align:center;align-items:center}
+.why:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(44,34,38,.07)}
+.why svg{width:46px;height:46px;stroke:var(--rose);fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.why h3{font-size:24px}
+.why p{color:var(--ink-soft);font-size:15px}
+
+.reviews{background:var(--ink);color:var(--blush)}
+.reviews .eyebrow{color:var(--gold-2)}
+.rating-line{display:flex;align-items:baseline;gap:22px;margin-top:40px;flex-wrap:wrap}
+.rating-line .score{font-family:'Cormorant Garamond',serif;font-size:96px;font-weight:500;color:var(--gold-2);line-height:1}
+.rating-line .stars{color:var(--gold-2);font-size:20px;letter-spacing:5px}
+.rating-line .cap{color:#C9B8BE;font-size:14px;margin-top:4px}
+.pct{display:flex;gap:30px;flex-wrap:wrap;margin-top:34px}
+.pct .p .n{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:var(--gold-2)}
+.pct .p .l{font-size:13px;color:#C9B8BE}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+.rev{background:rgba(251,243,241,.06);border:1px solid rgba(251,243,241,.14);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column;gap:14px}
+.rev .stars{color:var(--gold-2);letter-spacing:3px}
+.rev p{font-size:16px;flex:1;font-style:italic;font-family:'Cormorant Garamond',serif;font-size:18px}
+.rev .a{font-size:12.5px;color:#C9B8BE;letter-spacing:.06em}
+.rev-note{color:#C9B8BE;font-size:13px;margin-top:18px;text-align:center}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.c-card{background:var(--paper);border:1px solid var(--border);border-radius:24px;padding:42px;box-shadow:0 24px 60px rgba(44,34,38,.06);text-align:center}
+.c-card h3{font-size:30px;margin-bottom:10px}
+.c-card p{color:var(--ink-soft);font-size:15px;margin-bottom:26px}
+.c-card .btn{width:100%}
+.c-card .or{color:var(--ink-soft);font-size:13px;margin:14px 0}
+.info-list{margin-top:36px;display:flex;flex-direction:column;gap:20px}
+.info-item{display:flex;gap:16px}
+.info-item svg{flex-shrink:0;margin-top:3px;stroke:var(--rose);fill:none;stroke-width:1.6}
+.info-item .l{font-size:11.5px;font-weight:500;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-soft)}
+.info-item .v{font-size:17px;margin-top:2px}
+
+footer{background:var(--blush-2);border-top:1px solid var(--border);padding:34px 0}
+.f-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+footer p{color:var(--ink-soft);font-size:13.5px}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease-out,transform .7s ease-out}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}*{transition-duration:.01ms!important}}
+@media (max-width:920px){
+  section{padding:70px 0}
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .hero-art{max-width:400px}
+  .menu-cols{grid-template-columns:1fr}
+  .why-grid,.rev-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;gap:44px}
+}
+@media (max-width:640px){
+  .nav-links{position:fixed;inset:76px 0 auto 0;background:var(--blush);flex-direction:column;gap:0;padding:10px 0;border-bottom:1px solid var(--border);display:none}
+  .nav-links.open{display:flex}
+  .nav-links a{display:block;padding:15px 24px;font-size:15px}
+  .burger{display:block}
+  .nav .btn{display:none}
+  .c-card{padding:28px 20px}
+  .rating-line .score{font-size:68px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav" aria-label="Главная навигация">
+  <div class="container nav-inner">
+    <a href="#" class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#C9788A" stroke-width="1.5" aria-hidden="true"><path d="M12 21c-3-2-6-5-6-9a6 6 0 0 1 12 0c0 4-3 7-6 9z"/><path d="M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M12 21v-9"/></svg>
+      Fleur <span>&amp;</span> Coffee
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#menu">Меню</a></li>
+      <li><a href="#about">О месте</a></li>
+      <li><a href="#reviews">Отзывы</a></li>
+      <li><a href="#contact">Контакты</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-solid">Как найти</a>
+    <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="y-badge">★ <b>5.0</b> · 139 оценок на Яндекс Картах — 100% гостей хвалят атмосферу</div>
+      <div class="eyebrow">Кофейня &amp; цветы · Тамбов</div>
+      <h1>Кофе, цветы<br>и <em>немного Парижа</em></h1>
+      <p>Авторская кофейня в историческом здании на Советской: спешелти-кофе, макаронс, хрустальные люстры и свежие букеты по соседству. Стаканчик — с цветком, разумеется.</p>
+      <div class="hero-actions">
+        <a href="#menu" class="btn btn-solid">Меню</a>
+        <a href="#contact" class="btn btn-ghost">Как найти</a>
+      </div>
+      <div class="badges">
+        <div class="b"><div class="t">5.0</div><div class="c">рейтинг на Яндекс Картах</div></div>
+        <div class="b"><div class="t">160 ₽</div><div class="c">капучино — от</div></div>
+        <div class="b"><div class="t">100%</div><div class="c">хвалят интерьер</div></div>
+      </div>
+    </div>
+    <div class="hero-art reveal visible" aria-hidden="true">
+      <svg viewBox="0 0 300 320" fill="none">
+        <!-- стакан кофе с цветком -->
+        <path d="M100 110h100l-12 160H112z" fill="#FBEAEA" stroke="#C9788A" stroke-width="2"/>
+        <rect x="92" y="98" width="116" height="16" rx="6" fill="#C9788A"/>
+        <circle cx="150" cy="185" r="26" fill="none" stroke="#C9788A" stroke-width="1.5"/>
+        <text x="150" y="182" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="12" fill="#A85B6E" letter-spacing="1">FLEUR</text>
+        <text x="150" y="196" text-anchor="middle" font-family="Jost,sans-serif" font-size="8" fill="#A85B6E" letter-spacing="2">&amp; COFFEE</text>
+        <!-- цветок -->
+        <g transform="translate(200 70)">
+          <line x1="0" y1="0" x2="-30" y2="70" stroke="#6E8B5B" stroke-width="2.5"/>
+          <ellipse cx="-14" cy="40" rx="10" ry="4" transform="rotate(-40 -14 40)" fill="#8FAF78"/>
+          <g fill="#E39AAE">
+            <ellipse cx="0" cy="-14" rx="7" ry="14"/><ellipse cx="0" cy="14" rx="7" ry="14"/>
+            <ellipse cx="-14" cy="0" rx="14" ry="7"/><ellipse cx="14" cy="0" rx="14" ry="7"/>
+            <ellipse cx="-10" cy="-10" rx="7" ry="12" transform="rotate(-45 -10 -10)"/><ellipse cx="10" cy="10" rx="7" ry="12" transform="rotate(-45 10 10)"/>
+            <ellipse cx="10" cy="-10" rx="7" ry="12" transform="rotate(45 10 -10)"/><ellipse cx="-10" cy="10" rx="7" ry="12" transform="rotate(45 -10 10)"/>
+          </g>
+          <circle r="7" fill="#D4B27A"/>
+        </g>
+        <g fill="#E39AAE" opacity=".5"><circle cx="70" cy="80" r="5"/><circle cx="240" cy="230" r="6"/><circle cx="60" cy="240" r="4"/></g>
+        <ellipse cx="150" cy="284" rx="66" ry="8" fill="#C9788A" opacity=".18"/>
+      </svg>
+      <div class="photo-tag">здесь — фото интерьера</div>
+    </div>
+  </div>
+</header>
+
+<section class="menu" id="menu">
+  <div class="container">
+    <div class="eyebrow reveal">Меню</div>
+    <h2 class="section-title reveal">Кофе и сладости</h2>
+    <p class="section-sub reveal">Зерно свежей обжарки, молоко на выбор, авторские сиропы. Макаронс — наша визитная карточка.</p>
+    <div class="menu-cols">
+      <div class="mcol reveal">
+        <h3>Кофе</h3>
+        <div class="mrow"><span>Эспрессо</span><span class="p">120 ₽</span></div>
+        <div class="mrow"><span>Флэт уайт<span class="sz">200 мл</span></span><span class="p">170 ₽</span></div>
+        <div class="mrow"><span>Капучино<span class="sz">300 мл</span></span><span class="p">200 ₽</span></div>
+        <div class="mrow"><span>Латте<span class="sz">350 мл</span></span><span class="p">200 ₽</span></div>
+        <div class="mrow"><span>Раф<span class="sz">350 мл</span></span><span class="p">230 ₽</span></div>
+        <div class="mrow"><span>Айс латте</span><span class="p">230 ₽</span></div>
+      </div>
+      <div class="mcol reveal">
+        <h3>Десерты и не кофе</h3>
+        <div class="mrow"><span>Макаронс<span class="sz">1 шт.</span></span><span class="p">200 ₽</span></div>
+        <div class="mrow"><span>Круассан миндальный</span><span class="p">190 ₽</span></div>
+        <div class="mrow"><span>Тарт с ягодами</span><span class="p">260 ₽</span></div>
+        <div class="mrow"><span>Матча латте</span><span class="p">240 ₽</span></div>
+        <div class="mrow"><span>Какао с зефиром</span><span class="p">190 ₽</span></div>
+        <div class="mrow"><span>Чай листовой<span class="sz">чайник</span></span><span class="p">220 ₽</span></div>
+      </div>
+    </div>
+    <p class="note-under reveal">* Цены по данным Яндекс Карт (макаронс 200 ₽, капучино 200 ₽, раф 230 ₽) — актуализируем по вашему меню за 10 минут.</p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="eyebrow reveal">О месте</div>
+    <h2 class="section-title reveal">Почему сюда влюбляются</h2>
+    <div class="why-grid">
+      <div class="why reveal">
+        <svg viewBox="0 0 24 24"><path d="M12 3v3M8 6h8l-1 4H9z"/><path d="M6 10h12l-1.5 8h-9z"/><path d="M9 14h6M9 18h6"/></svg>
+        <h3>Историческое здание</h3><p>Лепнина, хрустальные люстры и высокие потолки старого купеческого дома. Гости пишут: «аутентично и необычно».</p>
+      </div>
+      <div class="why reveal">
+        <svg viewBox="0 0 24 24"><path d="M12 21c-3-2-6-5-6-9a6 6 0 0 1 12 0c0 4-3 7-6 9z"/><circle cx="12" cy="12" r="2.5"/></svg>
+        <h3>Цветы по соседству</h3><p>Fleur&amp;coffee — свежие букеты в том же здании. Кофе — себе, цветы — тому, к кому идёте.</p>
+      </div>
+      <div class="why reveal">
+        <svg viewBox="0 0 24 24"><path d="M12 21C7 17 3 13.5 3 9.5A4.5 4.5 0 0 1 7.5 5c1.8 0 3.4 1 4.5 2.5A5.4 5.4 0 0 1 16.5 5 4.5 4.5 0 0 1 21 9.5c0 4-4 7.5-9 11.5z"/></svg>
+        <h3>Стаканчик как открытка</h3><p>Каждый кофе с собой — в фирменном стакане с цветочным оформлением. «Отдельный вид искусства», как говорят гости.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="eyebrow reveal">Отзывы</div>
+    <h2 class="section-title reveal">Гости говорят</h2>
+    <div class="rating-line reveal">
+      <div class="score">5.0</div>
+      <div><div class="stars">★★★★★</div><div class="cap">139 оценок · 104 отзыва на Яндекс Картах</div></div>
+    </div>
+    <div class="pct reveal">
+      <div class="p"><div class="n">100%</div><div class="l">хвалят атмосферу</div></div>
+      <div class="p"><div class="n">100%</div><div class="l">хвалят интерьер</div></div>
+      <div class="p"><div class="n">95%</div><div class="l">хвалят кофе</div></div>
+    </div>
+    <div class="rev-grid">
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>«Очень аутентичная кофейня с необычным дизайном и исторической атмосферой. Всегда тихо и играет приятная музыка. Оформление стаканчиков — отдельный вид искусства!»</p><div class="a">Елизавета · Яндекс Карты</div></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>«Очень милая кофейня, спокойно, чисто. Вкусно приготовленный кофе. Рядом цветы свежие и большой выбор для комплимента. Рекомендую!»</p><div class="a">Людмила · Яндекс Карты</div></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>«Здесь будет ещё один ваш отзыв — подтянем настоящие из профиля, слово в слово.»</p><div class="a">Ваш гость · Яндекс Карты</div></div>
+    </div>
+    <p class="rev-note reveal">Два отзыва — настоящие, с вашей страницы на Яндекс Картах. В финальной версии подберём лучшие.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container contact-grid">
+    <div>
+      <div class="eyebrow reveal">Контакты</div>
+      <h2 class="section-title reveal">Ждём на Советской</h2>
+      <p class="section-sub reveal">Исторический центр Тамбова, дом с бабочкой над входом. Работаем ежедневно до 21:00.</p>
+      <div class="info-list reveal">
+        <div class="info-item">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <div><div class="l">Адрес</div><div class="v">Тамбов, ул. Советская, 81</div></div>
+        </div>
+        <div class="info-item">
+          <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <div><div class="l">Часы работы</div><div class="v">Ежедневно · до 21:00</div></div>
+        </div>
+        <div class="info-item">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+          <div><div class="l">Телефон</div><div class="v">+7 (___) ___-__-__ <span style="color:var(--ink-soft);font-size:13px">— укажем ваш</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="c-card reveal">
+      <h3>Заглянуть или заказать букет</h3>
+      <p>Кофе — на месте или с собой. Букет — соберём к вашему приходу.</p>
+      <a href="#" class="btn btn-solid" onclick="alert('В финальной версии — ваш номер телефона.');return false;">Позвонить</a>
+      <div class="or">или</div>
+      <a href="#" class="btn btn-ghost" style="width:100%" onclick="alert('В финальной версии — ссылка на ваш VK / Telegram.');return false;">Написать</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container f-inner">
+    <p>© 2026 Coffee. Fleurs · Тамбов, ул. Советская, 81</p>
+    <p>Черновик сайта · подготовлено STUDIO·48</p>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>10),{passive:true});
+const burger=document.getElementById('burger'),links=document.getElementById('navLinks');
+burger.addEventListener('click',()=>{const o=links.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ресторан «Союз» — Нижний Новгород, Автозавод | Бронь столов и банкеты</title>
+<meta name="description" content="Ресторан «Союз» на Молодёжном проспекте, 4А (м. Парк культуры). Рейтинг 5.0 на Яндекс Картах, «Хорошее место 2026». Европейская и азиатская кухня, банкеты, доставка. Бронь: +7 (831) 414-55-66.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0f12;
+  --bg-2:#13161b;
+  --surface:#191d24;
+  --surface-2:#1f242d;
+  --border:rgba(255,255,255,.08);
+  --border-strong:rgba(255,255,255,.14);
+  --text:#f2efe9;
+  --text-2:#b9b4aa;
+  --muted:#847f74;
+  --gold:#d4b273;
+  --gold-2:#e8cf9a;
+  --gold-dim:rgba(212,178,115,.14);
+  --serif:'Cormorant',serif;
+  --sans:'Manrope',sans-serif;
+  --container:1180px;
+  --r:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+body{
+  font-family:var(--sans);
+  background:var(--bg);
+  color:var(--text);
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+.container{max-width:var(--container);margin:0 auto;padding:0 24px}
+.serif{font-family:var(--serif)}
+
+/* ---------- header ---------- */
+.header{
+  position:fixed;inset:0 0 auto 0;z-index:100;
+  transition:background .3s,border-color .3s;
+  border-bottom:1px solid transparent;
+}
+.header.scrolled{background:rgba(13,15,18,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom-color:var(--border)}
+.header-in{display:flex;align-items:center;justify-content:space-between;height:76px;max-width:var(--container);margin:0 auto;padding:0 24px}
+.logo{display:flex;align-items:baseline;gap:10px}
+.logo-mark{font-family:var(--serif);font-size:30px;font-weight:600;letter-spacing:.14em;color:var(--text)}
+.logo-mark span{color:var(--gold)}
+.logo-sub{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted)}
+.nav{display:flex;gap:34px}
+.nav a{font-size:14px;font-weight:500;color:var(--text-2);letter-spacing:.02em;transition:color .2s;padding:10px 0}
+.nav a:hover{color:var(--gold-2)}
+.header-cta{display:flex;align-items:center;gap:22px}
+.header-phone{font-size:14px;font-weight:600;color:var(--text);white-space:nowrap;transition:color .2s}
+.header-phone:hover{color:var(--gold-2)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:48px;padding:12px 28px;border-radius:999px;
+  font-size:14px;font-weight:600;letter-spacing:.03em;
+  transition:transform .2s,background .2s,color .2s,border-color .2s,box-shadow .2s;
+  border:1px solid transparent;text-align:center;
+}
+.btn:active{transform:scale(.97)}
+.btn-gold{background:var(--gold);color:#17130a;border-color:var(--gold)}
+.btn-gold:hover{background:var(--gold-2);border-color:var(--gold-2);box-shadow:0 6px 30px rgba(212,178,115,.25)}
+.btn-ghost{background:transparent;color:var(--text);border-color:var(--border-strong)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-2)}
+.burger{display:none;background:none;border:none;width:48px;height:48px;align-items:center;justify-content:center}
+.burger svg{width:26px;height:26px;stroke:var(--text)}
+
+/* mobile menu */
+.mobilemenu{position:fixed;inset:0;z-index:200;background:rgba(13,15,18,.98);backdrop-filter:blur(10px);display:none;flex-direction:column;padding:24px}
+.mobilemenu.open{display:flex}
+.mm-top{display:flex;justify-content:space-between;align-items:center;height:52px}
+.mm-close{background:none;border:none;width:48px;height:48px;display:flex;align-items:center;justify-content:center}
+.mm-close svg{width:26px;height:26px;stroke:var(--text)}
+.mm-links{display:flex;flex-direction:column;gap:6px;margin-top:32px}
+.mm-links a{font-family:var(--serif);font-size:32px;font-weight:500;padding:10px 0;color:var(--text)}
+.mm-links a:hover{color:var(--gold-2)}
+.mm-foot{margin-top:auto;display:flex;flex-direction:column;gap:14px}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;min-height:100dvh;display:flex;flex-direction:column;justify-content:center;
+  padding:140px 0 90px;
+  background:
+    radial-gradient(1100px 500px at 78% -8%, rgba(212,178,115,.10), transparent 60%),
+    radial-gradient(800px 420px at 12% 110%, rgba(212,178,115,.06), transparent 60%),
+    linear-gradient(180deg,#0d0f12 0%,#101319 100%);
+  overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(rgba(255,255,255,.045) 1px, transparent 1.4px);
+  background-size:26px 26px;opacity:.5;pointer-events:none;
+}
+.hero-ring{position:absolute;border:1px solid rgba(212,178,115,.10);border-radius:50%;pointer-events:none}
+.hero-ring.r1{width:620px;height:620px;top:-180px;right:-140px}
+.hero-ring.r2{width:900px;height:900px;top:-320px;right:-280px;border-color:rgba(212,178,115,.06)}
+.hero-ring.r3{width:380px;height:380px;bottom:-140px;left:-120px;border-color:rgba(212,178,115,.08)}
+.hero-in{position:relative;z-index:2;max-width:var(--container);margin:0 auto;padding:0 24px;width:100%}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--gold-dim);border:1px solid rgba(212,178,115,.3);
+  border-radius:999px;padding:8px 18px;font-size:13px;font-weight:600;color:var(--gold-2);
+  margin-bottom:34px;
+}
+.hero-badge svg{width:16px;height:16px;fill:var(--gold)}
+.hero h1{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(52px,8.5vw,108px);line-height:1.02;letter-spacing:.01em;
+  max-width:900px;
+}
+.hero h1 em{font-style:italic;color:var(--gold-2)}
+.hero-lead{margin-top:28px;font-size:clamp(16px,1.6vw,19px);color:var(--text-2);max-width:560px;font-weight:300}
+.hero-lead strong{color:var(--text);font-weight:600}
+.hero-actions{display:flex;gap:16px;margin-top:44px;flex-wrap:wrap}
+.hero-meta{
+  display:flex;gap:0;margin-top:70px;border-top:1px solid var(--border);
+  flex-wrap:wrap;
+}
+.hm{padding:22px 44px 0 0;margin-right:44px}
+.hm-k{font-family:var(--serif);font-size:30px;font-weight:600;color:var(--text);line-height:1.1;font-variant-numeric:tabular-nums}
+.hm-k span{color:var(--gold)}
+.hm-v{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+
+/* ---------- section base ---------- */
+.section{padding:110px 0}
+.section-dark{background:var(--bg-2)}
+.kicker{display:flex;align-items:center;gap:14px;font-size:12.5px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+.kicker::before{content:"";width:36px;height:1px;background:var(--gold);opacity:.6}
+.h2{font-family:var(--serif);font-weight:500;font-size:clamp(36px,4.6vw,58px);line-height:1.08;letter-spacing:.01em}
+.h2 em{font-style:italic;color:var(--gold-2)}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:64px;flex-wrap:wrap}
+.section-head p{max-width:420px;color:var(--text-2);font-weight:300}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:center}
+.about-text p{color:var(--text-2);font-weight:300;font-size:17px;margin-bottom:20px}
+.about-text p strong{color:var(--text);font-weight:600}
+.about-visual{position:relative;aspect-ratio:4/4.6;border-radius:var(--r);overflow:hidden;background:
+  radial-gradient(420px 300px at 30% 20%, rgba(212,178,115,.16), transparent 60%),
+  linear-gradient(160deg,#232833 0%,#14171d 70%)}
+.about-visual::after{content:"";position:absolute;inset:18px;border:1px solid rgba(212,178,115,.25);border-radius:8px;pointer-events:none}
+.about-visual-label{position:absolute;left:0;right:0;bottom:0;padding:38px;text-align:center}
+.about-visual-label .serif{font-size:clamp(40px,4vw,56px);font-weight:500;font-style:italic;color:var(--gold-2);line-height:1.1}
+.about-visual-label p{margin-top:10px;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.about-visual-star{position:absolute;top:38px;left:0;right:0;display:flex;justify-content:center}
+.about-visual-star svg{width:54px;height:54px;fill:none;stroke:var(--gold);stroke-width:1}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:44px}
+.fact{background:var(--surface);padding:26px 28px}
+.fact-k{font-family:var(--serif);font-size:34px;font-weight:600;color:var(--gold-2);line-height:1;font-variant-numeric:tabular-nums}
+.fact-v{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.45}
+
+/* ---------- menu ---------- */
+.menu-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:50px}
+.menu-tab{
+  min-height:46px;padding:10px 24px;border-radius:999px;border:1px solid var(--border-strong);
+  background:transparent;color:var(--text-2);font-size:14px;font-weight:600;letter-spacing:.02em;
+  transition:all .2s;
+}
+.menu-tab:hover{border-color:var(--gold);color:var(--gold-2)}
+.menu-tab.active{background:var(--gold);border-color:var(--gold);color:#17130a}
+.menu-list{display:grid;grid-template-columns:1fr 1fr;gap:14px 56px}
+.menu-item{display:none;padding:26px 0;border-bottom:1px solid var(--border)}
+.menu-item.show{display:block;animation:fadeUp .45s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.mi-top{display:flex;align-items:baseline;gap:14px}
+.mi-name{font-family:var(--serif);font-size:23px;font-weight:600;letter-spacing:.01em}
+.mi-dots{flex:1;border-bottom:1px dotted rgba(255,255,255,.22);transform:translateY(-6px)}
+.mi-price{font-size:17px;font-weight:700;color:var(--gold-2);white-space:nowrap;font-variant-numeric:tabular-nums}
+.mi-desc{margin-top:8px;font-size:14px;color:var(--muted);font-weight:300;line-height:1.6}
+.mi-w{font-size:12px;color:var(--muted);opacity:.75;margin-top:6px}
+.menu-note{margin-top:44px;display:flex;align-items:center;gap:14px;color:var(--muted);font-size:13.5px}
+.menu-note svg{width:18px;height:18px;stroke:var(--gold);flex:none}
+
+/* ---------- banquets ---------- */
+.banq{position:relative;border-radius:20px;overflow:hidden;
+  background:
+   radial-gradient(700px 340px at 85% 0%, rgba(212,178,115,.14), transparent 60%),
+   linear-gradient(150deg,#1c212b 0%,#12151b 75%);
+  border:1px solid var(--border);
+  padding:clamp(40px,6vw,84px);
+}
+.banq::before{content:"";position:absolute;inset:16px;border:1px solid rgba(212,178,115,.14);border-radius:12px;pointer-events:none}
+.banq-grid{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center}
+.banq h2{font-family:var(--serif);font-weight:500;font-size:clamp(32px,4vw,50px);line-height:1.1}
+.banq h2 em{font-style:italic;color:var(--gold-2)}
+.banq p{margin-top:20px;color:var(--text-2);font-weight:300;max-width:520px}
+.banq-list{margin-top:28px;display:grid;gap:14px}
+.banq-li{display:flex;gap:14px;align-items:flex-start;font-size:15px;color:var(--text-2)}
+.banq-li svg{width:20px;height:20px;stroke:var(--gold);flex:none;margin-top:2px}
+.banq-li strong{color:var(--text);font-weight:600}
+.banq-cta{display:flex;flex-direction:column;gap:16px;align-items:stretch}
+.banq-card{background:rgba(13,15,18,.55);border:1px solid var(--border-strong);border-radius:var(--r);padding:30px;text-align:center}
+.banq-card .serif{font-size:44px;font-weight:600;color:var(--gold-2);line-height:1}
+.banq-card p{margin-top:6px;font-size:13px;color:var(--muted)}
+
+/* ---------- reviews ---------- */
+.reviews-band{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.rev{background:var(--surface);padding:34px 30px}
+.rev-k{display:flex;align-items:baseline;gap:6px}
+.rev-num{font-family:var(--serif);font-size:44px;font-weight:600;color:var(--text);font-variant-numeric:tabular-nums}
+.rev-pct{font-size:18px;color:var(--gold);font-weight:600}
+.rev-v{margin-top:10px;font-size:13.5px;color:var(--muted);line-height:1.5}
+.rev-src{text-align:center;margin-top:26px;font-size:13px;color:var(--muted)}
+.rev-src a{color:var(--gold);border-bottom:1px solid rgba(212,178,115,.35);transition:color .2s}
+.rev-src a:hover{color:var(--gold-2)}
+
+/* ---------- booking ---------- */
+.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.book-info p{color:var(--text-2);font-weight:300;margin-bottom:26px;max-width:460px}
+.book-ways{display:grid;gap:16px}
+.way{display:flex;gap:18px;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;transition:border-color .2s,transform .2s}
+.way:hover{border-color:rgba(212,178,115,.45);transform:translateY(-2px)}
+.way-ic{width:46px;height:46px;border-radius:12px;background:var(--gold-dim);display:flex;align-items:center;justify-content:center;flex:none}
+.way-ic svg{width:22px;height:22px;stroke:var(--gold-2)}
+.way-t{font-weight:600;font-size:15.5px}
+.way-s{font-size:13px;color:var(--muted)}
+.form{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:clamp(28px,3.4vw,44px)}
+.form h3{font-family:var(--serif);font-size:30px;font-weight:600;margin-bottom:8px}
+.form>p{font-size:13.5px;color:var(--muted);margin-bottom:28px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f-group{margin-bottom:16px}
+.f-group label{display:block;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.f-group input,.f-group select{
+  width:100%;min-height:50px;padding:12px 16px;border-radius:10px;
+  background:var(--bg);border:1px solid var(--border-strong);color:var(--text);
+  font-family:inherit;font-size:15px;transition:border-color .2s;
+  appearance:none;
+}
+.f-group input:focus,.f-group select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,178,115,.15)}
+.f-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23847f74' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.form .btn{width:100%;min-height:54px;margin-top:10px}
+.f-note{margin-top:14px;font-size:12.5px;color:var(--muted);text-align:center}
+.f-note a{color:var(--gold)}
+
+/* ---------- contacts ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.c-item{padding:22px 0;border-bottom:1px solid var(--border)}
+.c-item:first-child{padding-top:0}
+.c-k{font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.c-v{font-family:var(--serif);font-size:24px;font-weight:600;line-height:1.3}
+.c-v a{transition:color .2s}
+.c-v a:hover{color:var(--gold-2)}
+.c-sub{font-size:13.5px;color:var(--muted);margin-top:4px}
+.hours{display:grid;gap:0;border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.hrow{display:flex;justify-content:space-between;padding:16px 24px;background:var(--surface);font-size:15px}
+.hrow+.hrow{border-top:1px solid var(--border)}
+.hrow span:first-child{color:var(--text-2)}
+.hrow span:last-child{font-weight:600;font-variant-numeric:tabular-nums}
+.hrow.today{background:var(--gold-dim)}
+.hrow.today span:last-child{color:var(--gold-2)}
+.map-link{margin-top:22px;display:flex}
+.socials{display:flex;gap:12px;margin-top:26px}
+.soc{width:52px;height:52px;border-radius:50%;border:1px solid var(--border-strong);display:flex;align-items:center;justify-content:center;transition:border-color .2s,transform .2s}
+.soc:hover{border-color:var(--gold);transform:translateY(-3px)}
+.soc svg{width:22px;height:22px;fill:var(--text-2)}
+.soc:hover svg{fill:var(--gold-2)}
+
+/* ---------- footer ---------- */
+.footer{border-top:1px solid var(--border);padding:44px 0;background:var(--bg-2)}
+.footer-in{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.footer small{color:var(--muted);font-size:13px;line-height:1.6}
+.footer .logo-mark{font-size:24px}
+
+/* sticky mobile bar */
+.sticky-bar{position:fixed;left:0;right:0;bottom:0;z-index:90;display:none;gap:1px;background:var(--border);border-top:1px solid var(--border);padding-bottom:env(safe-area-inset-bottom)}
+.sticky-bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;min-height:58px;font-size:14px;font-weight:700;background:rgba(13,15,18,.97);backdrop-filter:blur(8px)}
+.sticky-bar a svg{width:18px;height:18px;stroke:var(--gold)}
+.sticky-bar a.gold{background:var(--gold);color:#17130a}
+.sticky-bar a.gold svg{stroke:#17130a}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.vis{opacity:1;transform:none}
+
+@media(max-width:1024px){
+  .nav{display:none}
+  .header-phone{display:none}
+  .burger{display:flex}
+  .about-grid,.book-grid,.contact-grid,.banq-grid{grid-template-columns:1fr;gap:48px}
+  .menu-list{grid-template-columns:1fr}
+  .reviews-band{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .section{padding:76px 0}
+  .hero{padding:120px 0 70px}
+  .hm{padding-right:0;margin-right:28px}
+  .hero-actions .btn{flex:1;min-width:150px}
+  .header-cta .btn{display:none}
+  .f-row{grid-template-columns:1fr}
+  .reviews-band{grid-template-columns:1fr}
+  .sticky-bar{display:flex}
+  body{padding-bottom:58px}
+  .facts{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="header" id="header">
+  <div class="header-in">
+    <a href="#top" class="logo" aria-label="Ресторан Союз — на главную">
+      <span class="logo-mark">СО<span>Ю</span>З</span>
+      <span class="logo-sub">ресторан</span>
+    </a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#about">О ресторане</a>
+      <a href="#menu">Меню</a>
+      <a href="#banquets">Банкеты</a>
+      <a href="#booking">Бронь</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header-cta">
+      <a class="header-phone" href="tel:+78314145566">+7 (831) 414-55-66</a>
+      <a class="btn btn-gold" href="#booking">Забронировать</a>
+      <button class="burger" aria-label="Открыть меню" onclick="mm(true)">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile menu -->
+<div class="mobilemenu" id="mobilemenu" role="dialog" aria-modal="true" aria-label="Меню сайта">
+  <div class="mm-top">
+    <span class="logo-mark">СО<span style="color:var(--gold)">Ю</span>З</span>
+    <button class="mm-close" aria-label="Закрыть меню" onclick="mm(false)">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="mm-links" aria-label="Мобильная навигация">
+    <a href="#about" onclick="mm(false)">О ресторане</a>
+    <a href="#menu" onclick="mm(false)">Меню</a>
+    <a href="#banquets" onclick="mm(false)">Банкеты</a>
+    <a href="#booking" onclick="mm(false)">Бронь</a>
+    <a href="#contacts" onclick="mm(false)">Контакты</a>
+  </nav>
+  <div class="mm-foot">
+    <a class="btn btn-gold" href="tel:+78314145566">Позвонить: +7 (831) 414-55-66</a>
+    <a class="btn btn-ghost" href="https://t.me/soyuz_rest" target="_blank" rel="noopener">Telegram</a>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-ring r1" aria-hidden="true"></div>
+  <div class="hero-ring r2" aria-hidden="true"></div>
+  <div class="hero-ring r3" aria-hidden="true"></div>
+  <div class="hero-in">
+    <div class="hero-badge">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.38L17.8 20 12 16.6 6.2 20l1.05-6.35L2.5 9.27l6.6-1.01L12 2z"/></svg>
+      5.0 на Яндекс Картах · «Хорошее место 2026»
+    </div>
+    <h1>Ресторан, ради которого <em>возвращаются</em></h1>
+    <p class="hero-lead">Европейская и азиатская кухня, коктейли и банкеты у Автозаводского парка. <strong>3 728 оценок</strong> и высший рейтинг — гости уже всё сказали за нас.</p>
+    <div class="hero-actions">
+      <a class="btn btn-gold" href="#booking">Забронировать стол</a>
+      <a class="btn btn-ghost" href="#menu">Смотреть меню</a>
+    </div>
+    <div class="hero-meta">
+      <div class="hm"><div class="hm-k">5.0<span>★</span></div><div class="hm-v">рейтинг · 3 728 оценок</div></div>
+      <div class="hm"><div class="hm-k">700–2500&nbsp;₽</div><div class="hm-v">средний чек</div></div>
+      <div class="hm"><div class="hm-k">до 01:00</div><div class="hm-v">по пятницам и субботам</div></div>
+      <div class="hm"><div class="hm-k">2 мин</div><div class="hm-v">от м. Парк культуры</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="kicker">О ресторане</div>
+        <h2 class="h2">Место встречи <em>на Автозаводе</em></h2>
+        <div style="height:26px"></div>
+        <p>«Союз» — ресторан на втором этаже дома на Молодёжном проспекте, в двух минутах от метро «Парк культуры» и Автозаводского парка. Здесь встречаются компании друзей, семьи и коллеги — за ужином, коктейлем или большим праздником.</p>
+        <p>Кухня — <strong>союз европейской классики и Азии</strong>: тартар из мраморной говядины и брускетты соседствуют с том-ямом, поке и роллами. Гости отдельно отмечают подачу — <strong>98% положительных отзывов о сервировке блюд</strong>.</p>
+        <p>Приходите с детьми — работает детская комната. Приходите с собакой — мы pet-friendly. Не хотите выходить из дома — работает доставка и самовывоз.</p>
+        <div class="facts">
+          <div class="fact"><div class="fact-k">94%</div><div class="fact-v">гостей хвалят атмосферу</div></div>
+          <div class="fact"><div class="fact-k">98%</div><div class="fact-v">— красивую подачу блюд</div></div>
+          <div class="fact"><div class="fact-k">90%</div><div class="fact-v">— интерьер ресторана</div></div>
+          <div class="fact"><div class="fact-k">88%</div><div class="fact-v">рекомендуют для большой компании</div></div>
+        </div>
+      </div>
+      <div class="about-visual reveal" aria-label="Ресторан Союз — атмосфера">
+        <div class="about-visual-star" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L21.5 9.27l-4.75 4.38L17.8 20 12 16.6 6.2 20l1.05-6.35L2.5 9.27l6.6-1.01L12 2z"/></svg>
+        </div>
+        <div class="about-visual-label">
+          <div class="serif">Союз вкуса<br>и атмосферы</div>
+          <p>Молодёжный проспект, 4А</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MENU ============ -->
+<section class="section section-dark" id="menu">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="kicker">Меню</div>
+        <h2 class="h2">Из нашего <em>меню</em></h2>
+      </div>
+      <p>Цены и составы — как в ресторане. Полное меню с супами, горячим, роллами и барной картой — в зале и по телефону.</p>
+    </div>
+    <div class="menu-tabs reveal" role="tablist" aria-label="Разделы меню">
+      <button class="menu-tab active" role="tab" aria-selected="true" data-cat="all">Всё</button>
+      <button class="menu-tab" role="tab" aria-selected="false" data-cat="salad">Салаты</button>
+      <button class="menu-tab" role="tab" aria-selected="false" data-cat="burger">Бургеры</button>
+      <button class="menu-tab" role="tab" aria-selected="false" data-cat="starter">Закуски</button>
+    </div>
+    <div class="menu-list" id="menuList">
+      <div class="menu-item show" data-cat="starter">
+        <div class="mi-top"><span class="mi-name">Тартар из говядины</span><span class="mi-dots"></span><span class="mi-price">699 ₽</span></div>
+        <p class="mi-desc">Мраморная говядина, каперсы, красный лук, соусы ворчестер и табаско, дижонская горчица, чиабатта</p>
+        <p class="mi-w">175 г</p>
+      </div>
+      <div class="menu-item show" data-cat="salad">
+        <div class="mi-top"><span class="mi-name">Салат с морепродуктами</span><span class="mi-dots"></span><span class="mi-price">559 ₽</span></div>
+        <p class="mi-desc">Креветки, кальмар, мясо мидий, микс салата, соус из запечённых овощей, ореховый соус, лайм</p>
+        <p class="mi-w">271 г</p>
+      </div>
+      <div class="menu-item show" data-cat="burger">
+        <div class="mi-top"><span class="mi-name">Гамбургер с говядиной и беконом</span><span class="mi-dots"></span><span class="mi-price">592 ₽</span></div>
+        <p class="mi-desc">Булочка бриошь, котлета из говядины, сырокопчёный бекон, чеддер, айсберг, солёные огурцы</p>
+        <p class="mi-w">265 г</p>
+      </div>
+      <div class="menu-item show" data-cat="salad">
+        <div class="mi-top"><span class="mi-name">Салат с ростбифом и баклажаном</span><span class="mi-dots"></span><span class="mi-price">510 ₽</span></div>
+        <p class="mi-desc">Ростбиф, баклажан, битые огурцы, микс салата, эспума цезарь-унаги, соус терияки</p>
+        <p class="mi-w">220 г</p>
+      </div>
+      <div class="menu-item show" data-cat="burger">
+        <div class="mi-top"><span class="mi-name">Бургер с томлёной говядиной</span><span class="mi-dots"></span><span class="mi-price">581 ₽</span></div>
+        <p class="mi-desc">Булочка бриошь, говяжьи щёчки, грибной соус, айсберг, томат, красный лук</p>
+        <p class="mi-w">220 г</p>
+      </div>
+      <div class="menu-item show" data-cat="salad">
+        <div class="mi-top"><span class="mi-name">Салат с томатами и страчателлой</span><span class="mi-dots"></span><span class="mi-price">533 ₽</span></div>
+        <p class="mi-desc">Томаты, микс салата, оливковое масло, сыр страчателла, базилик</p>
+        <p class="mi-w">269 г</p>
+      </div>
+      <div class="menu-item show" data-cat="starter">
+        <div class="mi-top"><span class="mi-name">Брускетта с ростбифом</span><span class="mi-dots"></span><span class="mi-price">522 ₽</span></div>
+        <p class="mi-desc">Чиабатта, горчичная заправка, ростбиф из говяжьей вырезки, лук криспи</p>
+        <p class="mi-w">166 г</p>
+      </div>
+      <div class="menu-item show" data-cat="salad">
+        <div class="mi-top"><span class="mi-name">Салат с тунцом</span><span class="mi-dots"></span><span class="mi-price">507 ₽</span></div>
+        <p class="mi-desc">Филе тунца, черри, микс салата, маслины, болгарский перец, медово-горчичная заправка</p>
+        <p class="mi-w">215 г</p>
+      </div>
+      <div class="menu-item show" data-cat="starter">
+        <div class="mi-top"><span class="mi-name">Брускетта с авокадо и вялеными томатами</span><span class="mi-dots"></span><span class="mi-price">415 ₽</span></div>
+        <p class="mi-desc">Чиабатта, чесночное масло, брынза и творожный сыр, авокадо, базилик</p>
+        <p class="mi-w">162 г</p>
+      </div>
+      <div class="menu-item show" data-cat="salad">
+        <div class="mi-top"><span class="mi-name">Оливье из печёных овощей с языком</span><span class="mi-dots"></span><span class="mi-price">388 ₽</span></div>
+        <p class="mi-desc">Запечённые картофель и морковь, отварной говяжий язык, перепелиное яйцо, айоли</p>
+        <p class="mi-w">235 г</p>
+      </div>
+    </div>
+    <p class="menu-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      Также в меню: том-ям, поке, суши и роллы, паста, горячие блюда и десерты. Есть доставка, самовывоз и кофе с собой.
+    </p>
+  </div>
+</section>
+
+<!-- ============ BANQUETS ============ -->
+<section class="section" id="banquets">
+  <div class="container">
+    <div class="banq reveal">
+      <div class="banq-grid">
+        <div>
+          <div class="kicker">Праздники</div>
+          <h2>Банкеты и <em>большие компании</em></h2>
+          <p>День рождения, юбилей, корпоратив или свадьба — «Союз» принимает праздники любого масштаба. 88% гостей рекомендуют нас для большой компании.</p>
+          <div class="banq-list">
+            <div class="banq-li"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Детская комната</strong> — родители отдыхают, дети заняты</span></div>
+            <div class="banq-li"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Коктейльная карта</strong> — 84% положительных отзывов о коктейлях</span></div>
+            <div class="banq-li"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Праздничная подача</strong> — сервировка, которую отмечают в 98% отзывов</span></div>
+            <div class="banq-li"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><strong>До 01:00 в пятницу и субботу</strong> — праздник не придётся сворачивать рано</span></div>
+          </div>
+        </div>
+        <div class="banq-cta">
+          <div class="banq-card">
+            <div class="serif">700–2500&nbsp;₽</div>
+            <p>средний чек на гостя</p>
+          </div>
+          <a class="btn btn-gold" href="tel:+78314145566">Обсудить банкет по телефону</a>
+          <a class="btn btn-ghost" href="https://t.me/soyuz_rest" target="_blank" rel="noopener">Написать в Telegram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="section section-dark" id="reviews">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="kicker">Отзывы</div>
+        <h2 class="h2">Цифры <em>говорят сами</em></h2>
+      </div>
+      <p>Оценки по 1 819 отзывам гостей на Яндекс Картах — независимый источник, который нельзя «накрутить» красивыми словами.</p>
+    </div>
+    <div class="reviews-band reveal">
+      <div class="rev"><div class="rev-k"><span class="rev-num">5.0</span><span class="rev-pct">из 5</span></div><p class="rev-v">Рейтинг по 3 728 оценкам, награда «Хорошее место 2026»</p></div>
+      <div class="rev"><div class="rev-k"><span class="rev-num">98</span><span class="rev-pct">%</span></div><p class="rev-v">гостей в восторге от подачи блюд</p></div>
+      <div class="rev"><div class="rev-k"><span class="rev-num">94</span><span class="rev-pct">%</span></div><p class="rev-v">положительных отзывов об атмосфере</p></div>
+      <div class="rev"><div class="rev-k"><span class="rev-num">100</span><span class="rev-pct">%</span></div><p class="rev-v">отзывов о романтической атмосфере — положительные</p></div>
+    </div>
+    <p class="rev-src reveal">Источник: <a href="https://yandex.ru/maps/org/soyuz/20540931236/" target="_blank" rel="noopener">карточка ресторана на Яндекс Картах</a></p>
+  </div>
+</section>
+
+<!-- ============ BOOKING ============ -->
+<section class="section" id="booking">
+  <div class="container">
+    <div class="book-grid">
+      <div class="book-info reveal">
+        <div class="kicker">Бронирование</div>
+        <h2 class="h2">Забронируйте <em>стол</em></h2>
+        <div style="height:22px"></div>
+        <p>Вечером в пятницу и субботу столы разбирают быстро — лучше бронировать заранее. Выберите удобный способ:</p>
+        <div class="book-ways">
+          <a class="way" href="tel:+78314145566">
+            <span class="way-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <span><span class="way-t">По телефону</span><br><span class="way-s">+7 (831) 414-55-66 — быстрее всего</span></span>
+          </a>
+          <a class="way" href="https://t.me/soyuz_rest" target="_blank" rel="noopener">
+            <span class="way-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg></span>
+            <span><span class="way-t">В Telegram</span><br><span class="way-s">@soyuz_rest — ответим в чате</span></span>
+          </a>
+          <a class="way" href="https://vk.com/soyuz_group" target="_blank" rel="noopener">
+            <span class="way-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
+            <span><span class="way-t">ВКонтакте</span><br><span class="way-s">vk.com/soyuz_group — афиша и новости</span></span>
+          </a>
+        </div>
+      </div>
+      <form class="form reveal" id="bookForm" novalidate>
+        <h3>Заявка на бронь</h3>
+        <p>Заполните форму — заявка откроется в Telegram, останется только нажать «Отправить».</p>
+        <div class="f-group">
+          <label for="fname">Имя *</label>
+          <input id="fname" name="name" type="text" autocomplete="name" required placeholder="Как к вам обращаться">
+        </div>
+        <div class="f-group">
+          <label for="fphone">Телефон *</label>
+          <input id="fphone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="+7 ___ ___-__-__">
+        </div>
+        <div class="f-row">
+          <div class="f-group">
+            <label for="fdate">Дата *</label>
+            <input id="fdate" name="date" type="date" required>
+          </div>
+          <div class="f-group">
+            <label for="ftime">Время *</label>
+            <input id="ftime" name="time" type="time" min="12:00" required value="19:00">
+          </div>
+        </div>
+        <div class="f-group">
+          <label for="fguests">Гостей</label>
+          <select id="fguests" name="guests">
+            <option>1–2</option><option selected>3–4</option><option>5–8</option><option>Больше 8 (банкет)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-gold">Отправить заявку в Telegram</button>
+        <p class="f-note">Или просто позвоните: <a href="tel:+78314145566">+7 (831) 414-55-66</a></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACTS ============ -->
+<section class="section section-dark" id="contacts">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="kicker">Контакты</div>
+        <h2 class="h2">Как нас <em>найти</em></h2>
+      </div>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="c-item">
+          <div class="c-k">Адрес</div>
+          <div class="c-v">Молодёжный проспект, 4А, 2 этаж</div>
+          <p class="c-sub">Нижний Новгород, Автозаводский район · 200 м от м. «Парк культуры»</p>
+        </div>
+        <div class="c-item">
+          <div class="c-k">Телефон</div>
+          <div class="c-v"><a href="tel:+78314145566">+7 (831) 414-55-66</a></div>
+          <p class="c-sub">Бронь столов и банкетов, доставка</p>
+        </div>
+        <div class="c-item">
+          <div class="c-k">Соцсети</div>
+          <div class="socials">
+            <a class="soc" href="https://t.me/soyuz_rest" target="_blank" rel="noopener" aria-label="Telegram ресторана Союз">
+              <svg viewBox="0 0 24 24"><path d="M21.9 4.1 2.7 11.5c-1 .4-1 1.4-.2 1.7l4.9 1.5 1.9 5.8c.2.7 1.1.9 1.6.4l2.7-2.6 5 3.7c.6.4 1.5.1 1.7-.7l3-14.9c.2-1-.6-1.7-1.4-1.3zM8.5 14.3l9.4-6c.4-.3.9.3.5.6l-7.7 7-.3 3-1.9-4.6z"/></svg>
+            </a>
+            <a class="soc" href="https://vk.com/soyuz_group" target="_blank" rel="noopener" aria-label="ВКонтакте ресторана Союз">
+              <svg viewBox="0 0 24 24"><path d="M13.1 18.8c-5.9 0-9.8-4.2-10-11.1h3.1c.1 5.1 2.5 7.3 4.3 7.7V7.7h3v4.4c1.8-.2 3.7-2.2 4.3-4.4h2.9c-.5 2.7-2.4 4.7-3.7 5.5 1.3.7 3.5 2.4 4.3 5.6h-3.2c-.6-2-2.2-3.6-4.6-3.9v3.9h-.4z"/></svg>
+            </a>
+          </div>
+        </div>
+        <a class="btn btn-ghost map-link" href="https://yandex.ru/maps/org/soyuz/20540931236/" target="_blank" rel="noopener">Открыть на Яндекс Картах</a>
+      </div>
+      <div class="reveal">
+        <div class="c-k" style="margin-bottom:14px">Часы работы</div>
+        <div class="hours" id="hours">
+          <div class="hrow" data-d="1,2,3,4"><span>Понедельник — четверг</span><span>12:00 — 00:00</span></div>
+          <div class="hrow" data-d="5,6"><span>Пятница — суббота</span><span>12:00 — 01:00</span></div>
+          <div class="hrow" data-d="0"><span>Воскресенье</span><span>12:00 — 00:00</span></div>
+        </div>
+        <p class="c-sub" style="margin-top:16px">Доставка и самовывоз — в часы работы ресторана. Можно с собакой. Кофе с собой.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container footer-in">
+    <div>
+      <span class="logo-mark">СО<span style="color:var(--gold)">Ю</span>З</span>
+      <small style="display:block;margin-top:8px">Ресторан · Нижний Новгород, Молодёжный пр., 4А</small>
+    </div>
+    <small>Рейтинг и отзывы — Яндекс Карты, август 2026.<br>© Ресторан «Союз». Все права защищены.</small>
+  </div>
+</footer>
+
+<!-- sticky mobile CTA -->
+<div class="sticky-bar">
+  <a href="tel:+78314145566">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Позвонить
+  </a>
+  <a href="#booking" class="gold">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+    Забронировать
+  </a>
+</div>
+
+<script>
+// header scroll
+const header=document.getElementById('header');
+addEventListener('scroll',()=>{header.classList.toggle('scrolled',scrollY>30)},{passive:true});
+
+// mobile menu
+function mm(open){document.getElementById('mobilemenu').classList.toggle('open',open);document.body.style.overflow=open?'hidden':''}
+
+// menu tabs
+document.querySelectorAll('.menu-tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.menu-tab').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false')});
+    tab.classList.add('active');tab.setAttribute('aria-selected','true');
+    const cat=tab.dataset.cat;
+    document.querySelectorAll('.menu-item').forEach(mi=>{
+      mi.classList.toggle('show',cat==='all'||mi.dataset.cat===cat);
+    });
+  });
+});
+
+// today highlight in hours
+const day=new Date().getDay();
+document.querySelectorAll('#hours .hrow').forEach(r=>{
+  if(r.dataset.d.split(',').includes(String(day)))r.classList.add('today');
+});
+
+// booking form -> telegram
+document.getElementById('bookForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=e.target;
+  if(!f.reportValidity())return;
+  const msg=`Здравствуйте! Хочу забронировать стол в «Союзе».%0AИмя: ${encodeURIComponent(f.name.value)}%0AТелефон: ${encodeURIComponent(f.phone.value)}%0AДата: ${encodeURIComponent(f.date.value)} ${encodeURIComponent(f.time.value)}%0AГостей: ${encodeURIComponent(f.guests.value)}`;
+  window.open(`https://t.me/share/url?url=https://t.me/soyuz_rest&text=${msg}`,'_blank');
+});
+
+// min booking date = today
+document.getElementById('fdate').min=new Date().toISOString().split('T')[0];
+
+// reveal on scroll
+const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('vis');io.unobserve(en.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
